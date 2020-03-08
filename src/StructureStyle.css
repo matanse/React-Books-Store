@@ -1,5 +1,5 @@
 .container {
-  max-width: none;
+  max-width: 100%;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-areas:
@@ -40,14 +40,10 @@ nav {
   justify-content: space-between;
 }
 
-#search {
-  background-color: #080768 !important;
-}
-
 .row {
   grid-area: books;
   display: flex;
-  width: 100%;
+  width: 95%;
   flex-wrap: wrap;
   justify-content: space-evenly;
   padding: 20px;

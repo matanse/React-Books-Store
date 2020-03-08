@@ -25,27 +25,14 @@ class App extends Component {
       .then(res => this.setState({ books: res.data.books }));
   }
 
-  // }
-  //   document.getElementById("mySidenav").style.width = "250px";
-  //   document.getElementById("main").style.marginLeft = "250px";
-  //   document.getElementById("book_store_title").style.fontSize = "6vw";
-  // };
-
-  //  Set the width of the side navigation to 0 and the left margin of the page content to 0 */
-  // closeNav = () => {
-  //   return{
-  //   mySidenav:style.width = "0";
-  //   "main").style.marginLeft = "0";
-  //     "book_store_title").style.fontSize = "8vw";
-  //   }
-  // };
-
-  // -------  end side bar -------
-
   mainSideMenuOutStyle = () => {
     return {
       marginLeft: "250px"
     };
+  };
+
+  filterBySearch = e => {
+    // if e ==
   };
 
   render() {
@@ -53,7 +40,10 @@ class App extends Component {
       <div className="App">
         <div className="container">
           <header>
-            <Header openNav={() => this.setState({ displayNav: true })} />
+            <Header
+              openNav={() => this.setState({ displayNav: true })}
+              filterBySearch={this.filterBySearch()}
+            />
           </header>
           {this.state.displayNav && (
             <SideMenu

@@ -7,22 +7,40 @@ class Header extends Component {
         <a className="active" href="#">
           <span onClick={this.props.openNav}>Filter By...</span>
         </a>
-        <div className='logo-container'>
+        <div className="logo-container">
           <img
             className="logo"
             id="logo1"
-            source={require("../up-logo.png")}
+            source={require("../components/logo-up.png")}
             alt=""
           />
           <img
             className="logo"
             id="logo2"
-            source={require("../down-logo.png")}
+            src={require("../components/logo-down.png")}
             alt=""
           />
         </div>
-        <h1>header gos here</h1>
-        <nav></nav>
+        <h1>Crazy Book Store</h1>
+        <nav id="search" class="navbar navbar-light bg-light">
+          <form class="form-inline">
+            <input
+              id="search_input"
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="type here"
+              aria-label="Search"
+            />
+            <button
+              id="search_button"
+              class="btn btn-outline-success my-2 my-sm-0"
+              type="submit"
+              onClick={this.props.filterBySearch}
+            >
+              Search
+            </button>
+          </form>
+        </nav>
       </div>
     );
   }
