@@ -1,0 +1,38 @@
+.book-store-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  background-color: rgb(122, 96, 78);
+  padding: 4%;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  object-fit: cover;
+  width: 100px;
+  height: 50px;
+  position: relative;
+  animation: myMove 5s infinite;
+}
+
+#logo1 {
+  animation-timing-function: linear;
+}
+#logo2 {
+  animation-timing-function: ease;
+}
+
+@keyframes myMove {
+  from {
+    right: 0px;
+  }
+  to {
+    left: 0px;
+  }
+}

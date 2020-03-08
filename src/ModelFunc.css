@@ -2,7 +2,6 @@
 
 /* The Modal (background) */
 .modal {
-  display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
@@ -16,6 +15,9 @@
 
 /* Modal Content/Box */
 .modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-color: #fefefe;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
@@ -23,19 +25,31 @@
   width: 80%; /* Could be more or less, depending on screen size */
 }
 
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+.top-modal-nav {
+  display: flex;
+  justify-content: space-between;
 }
 
-.close:hover,
-.close:focus {
-  color: black;
+/* The Close Button */
+.modal-top-btn {
+  background-color: rgb(19, 17, 17);
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 10%;
+}
+
+.modal-top-btn:hover,
+.modal-top-btn:focus {
+  /* background-color: rgb(47, 34, 34); */
+  border: rgb(115, 158, 66) 3px solid;
+  padding: 9px;
   text-decoration: none;
   cursor: pointer;
+}
+
+.modal-close-btn {
+  font-size: 28px;
 }
 
 /* -------- end of model popup ----- */

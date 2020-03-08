@@ -4,12 +4,7 @@ import BookCard from "./BookCard";
 class Books extends Component {
   render() {
     return this.props.books.map(book => (
-      <BookCard
-        key={book.title}
-        book={book}
-        title={book.title}
-        description={book.description}
-      />
+      <BookCard book={book} key={book} openModal={this.props.openModal} />
     ));
   }
 }

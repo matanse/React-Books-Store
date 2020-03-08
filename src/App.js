@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import "./StructureStyle.css";
+import "./header.css";
 import "./CardsFunc.css";
 import "./ModelFunc.css";
 import "./SideMenu.css";
@@ -14,6 +15,7 @@ import Footer from "./components/Footer";
 
 class App extends Component {
   state = {
+    displayNav: false,
     books: []
   };
 
@@ -23,47 +25,43 @@ class App extends Component {
       .then(res => this.setState({ books: res.data.books }));
   }
 
-  // ---------   bootstrap side bar ------
-
-  /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
-  // openNav = () => {
+  // }
   //   document.getElementById("mySidenav").style.width = "250px";
   //   document.getElementById("main").style.marginLeft = "250px";
   //   document.getElementById("book_store_title").style.fontSize = "6vw";
   // };
 
-  // /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+  //  Set the width of the side navigation to 0 and the left margin of the page content to 0 */
   // closeNav = () => {
-  //   document.getElementById("mySidenav").style.width = "0";
-  //   document.getElementById("main").style.marginLeft = "0";
-  //   document.getElementById("book_store_title").style.fontSize = "8vw";
+  //   return{
+  //   mySidenav:style.width = "0";
+  //   "main").style.marginLeft = "0";
+  //     "book_store_title").style.fontSize = "8vw";
+  //   }
   // };
 
   // -------  end side bar -------
 
+  mainSideMenuOutStyle = () => {
+    return {
+      marginLeft: "250px"
+    };
+  };
+
   render() {
-    console.log(this.state.books);
     return (
       <div className="App">
         <div className="container">
-          <div className="sidenav" id="mySidenav">
-            {/* <a
-              href="javascript:void(0)"
-              class="closebtn"
-              onClick={this.closeNav()}
-            >
-              &times;
-            </a> */}
-            <SideMenu />
-          </div>
-
           <header>
-            {/* <a class="active" href="#">
-              { Use any element to open the sidenav  }
-              <span onClick={this.openNav()}>Filter By...</span>
-            </a> */}
-            <Header />
+            <Header openNav={() => this.setState({ displayNav: true })} />
           </header>
+          {this.state.displayNav && (
+            <SideMenu
+              closeNav={() => {
+                this.setState({ displayNav: false });
+              }}
+            />
+          )}
 
           <div id="main" className="row">
             <Books books={this.state.books} />
