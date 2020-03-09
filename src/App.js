@@ -16,7 +16,8 @@ import Footer from "./components/Footer";
 class App extends Component {
   state = {
     displayNav: false,
-    books: []
+    books: [],
+    search: ""
   };
 
   componentDidMount() {
@@ -31,8 +32,21 @@ class App extends Component {
     };
   };
 
-  filterBySearch = e => {
-    // if e ==
+  searchBar = e => {
+    let filter = e.target.value.toUpperCase();
+    this.setState({ search: filter });
+  };
+
+  filterFunction = e => {
+    let books = this.state.books;
+    let arr = [];
+    for (var i = 0; i < books.length; i++) {
+      if (books[i].title.toUpperCase().includes(this.state.search)) {
+        arr.push(books[i]);
+      }
+    }
+    console.log(this.state);
+    return arr;
   };
 
   render() {
@@ -42,7 +56,8 @@ class App extends Component {
           <header>
             <Header
               openNav={() => this.setState({ displayNav: true })}
-              filterBySearch={this.filterBySearch()}
+              searchBar={this.searchBar}
+              filterBySearch={this.filterBySearch}
             />
           </header>
           {this.state.displayNav && (
@@ -54,7 +69,7 @@ class App extends Component {
           )}
 
           <div id="main" className="row">
-            <Books books={this.state.books} />
+            <Books books={this.filterFunction()} />
           </div>
           <footer>
             <Footer />

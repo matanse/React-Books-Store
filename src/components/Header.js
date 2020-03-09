@@ -11,7 +11,7 @@ class Header extends Component {
           <img
             className="logo"
             id="logo1"
-            source={require("../components/logo-up.png")}
+            src={require("../components/logo-up.png")}
             alt=""
           />
           <img
@@ -30,6 +30,7 @@ class Header extends Component {
               type="search"
               placeholder="type here"
               aria-label="Search"
+              onKeyUp={this.props.searchBar}
             />
             <button
               id="search_button"

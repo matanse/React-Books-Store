@@ -8,16 +8,20 @@
   padding: 2%;
 }
 
+/* header > p {
+  rotate: 90
+} */
+
 .logo-container {
   display: flex;
   flex-direction: column;
 }
 
 .logo {
-  width: 100px;
-  height: 50px;
+  width: 12vw;
+  height: 8vh;
   position: relative;
-  animation: myMove 5s infinite;
+  animation: myMove 20s infinite;
 }
 
 #logo1 {
@@ -28,11 +32,20 @@
 }
 
 @keyframes myMove {
-  from {
-    right: 0px;
+  0% {
+    left: -20vw;
   }
-  to {
+  4% {
+    left: 3vw;
+  }
+  30% {
     left: 0px;
+  }
+  90% {
+    left: 0px;
+  }
+  100% {
+    left: -20vw;
   }
 }
 
