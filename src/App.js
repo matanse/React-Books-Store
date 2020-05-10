@@ -17,27 +17,27 @@ class App extends Component {
   state = {
     displayNav: false,
     books: [],
-    search: ""
+    search: "",
   };
 
   componentDidMount() {
     axios
-      .get("https://api.myjson.com/bins/zyv02")
-      .then(res => this.setState({ books: res.data.books }));
+      .get("https://api.jsonbin.io/b/5ea833484c87c3359a632938")
+      .then((res) => this.setState({ books: res.data.books }));
   }
 
   mainSideMenuOutStyle = () => {
     return {
-      marginLeft: "250px"
+      marginLeft: "250px",
     };
   };
 
-  searchBar = e => {
+  searchBar = (e) => {
     let filter = e.target.value.toUpperCase();
     this.setState({ search: filter });
   };
 
-  filterFunction = e => {
+  filterFunction = (e) => {
     let books = this.state.books;
     let arr = [];
     for (var i = 0; i < books.length; i++) {
